@@ -1,14 +1,16 @@
 {
-  "name"         : "node-todo",
-  "version"      : "0.0.0",
-  "description"  : "Simple todo application.",
+  "name"         : "PaaS Academy - Docker Activity",
+  "version"      : "1.0.0",
+  "description"  : "Simple NodeJS and MongoDB Application.",
   "main"         : "server.js",
-  "author"       : "Scotch",
+  "author"       : "Jopy Henriques",
+  "config"       : { "port" : "8080" },
+  "scripts"      : { "start" : "node server.js" }
   "dependencies" : {
-    "express"         : "~4.6.1",
-    "mongoose"        : "~3.8.13",
-    "morgan"          : "~1.1.1",
-    "body-parser"     : "~1.4.3",
-    "method-override" : "~2.1.1"
+    "express"         : "latest",
+    "mongoose"        : "latest",
+    "morgan"          : "latest",
+    "body-parser"     : "latest",
+    "method-override" : "latest"
   }
 }
