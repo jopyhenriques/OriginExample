@@ -2,7 +2,19 @@ FROM    node:latest
 
 MAINTAINER Jopy Henriques (jopy.c.henriques@accenture.com)
 
-# Install app dependencies
+# add the files to load
+
+ADD ./ .
+
+# install all needed packages
+
+
 RUN npm install
 
-EXPOSE  8080
+# expose port
+
+EXPOSE 8080
+
+# execute server.js
+
+ENTRYPOINT ["node", "server.js"]

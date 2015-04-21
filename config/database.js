@@ -1,5 +1,5 @@
 module.exports = {
 
 	// the database url to connect
-	url : 'mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'
+	url : 'mongodb://\'+process.env.MONGO_PORT_27017_TCP_ADDR+\':\'+process.env.MONGO_PORT_27017_TCP_PORT+\'/blog'
 }
