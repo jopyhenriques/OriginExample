@@ -1,5 +1,4 @@
 module.exports = {
 
-	// the database url to connect
-	url : 'mongodb://\'+process.env.MONGO_PORT_27017_TCP_ADDR+\':\'+process.env.MONGO_PORT_27017_TCP_PORT+\'/blog'
+	url : 'mongodb://'+process.env.DBALIAS_PORT_27017_TCP_ADDR+':'+process.env.DBALIAS_PORT_27017_TCP_PORT+'/todo'
 }
