@@ -8,28 +8,10 @@ var morgan   = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
-var mongoURLLabel = "";
-if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
-  var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
-  var mongoHost = process.env[mongoServiceName + "_SERVICE_HOST"];
-  var mongoPort = process.env[mongoServiceName + "_SERVICE_PORT"];
-  var mongoUser = process.env.MONGODB_USER
-  if (mongoHost && mongoPort && process.env.MONGODB_DATABASE) {
-    mongoURLLabel = mongoURL = 'mongodb://';
-    if (process.env.MONGODB_USER && process.env.MONGODB_PASSWORD) {
-      mongoURL += process.env.MONGODB_USER + ':' + process.env.MONGODB_PASSWORD + '@';
-    }
-    // Provide UI label that excludes user id and pw
-
-    mongoURLLabel += mongoHost + ':' + mongoPort + '/' + process.env.MONGODB_DATABASE;
-    mongoURL += mongoHost + ':' + mongoPort + '/' + process.env.MONGODB_DATABASE;
-  }
-}
 
 // configuration ===============================================================
-//mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
-mongoose.connect(mongoURL);
+mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
+
 
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
